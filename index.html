@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Nexus — Sentient Dev Playground OS</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- CDN Links -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body class="theme-neo-holo">
+    <!-- 3D Quantum Canvas -->
+    <canvas id="quantum-canvas"></canvas>
+
+    <!-- AI Assistant Orb -->
+    <div class="ai-orb" id="ai-orb"></div>
+
+    <!-- Desktop Grid -->
+    <div class="desktop-grid">
+      <!-- Code Editor Window -->
+      <div class="quantum-window editor-window" id="editor-window">
+        <div class="window-header">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-code text-blue-400"></i>
+            <span>Quantum Editor</span>
+          </div>
+          <div class="window-controls">
+            <div class="control-btn minimize"></div>
+            <div class="control-btn maximize"></div>
+            <div class="control-btn close"></div>
+          </div>
+        </div>
+        <div class="p-2 h-full flex">
+          <div class="w-1/3 border-r border-gray-700">
+            <div class="p-2 font-bold text-sm">HTML</div>
+            <textarea id="html-editor">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Quantum App&lt;/title&gt;
+    &lt;style&gt;
+        body { 
+            background: linear-gradient(135deg, #0a0a15, #1a1a2e);
+            color: #e0e0ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: rgba(30, 30, 60, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 100, 255, 0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            color: #00f0ff;
+            margin-bottom: 1rem;
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="card pulse"&gt;
+        &lt;h1&gt;🚀 Quantum Nexus&lt;/h1&gt;
+        &lt;p&gt;Welcome to the future of development&lt;/p&gt;
+        &lt;button style="background: linear-gradient(135deg, #00f0ff, #7d00ff); border: none; color: white; padding: 10px 20px; border-radius: 6px; margin-top: 1rem; cursor: pointer;"&gt;
+            Explore Possibilities
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea
+            >
+          </div>
+          <div class="w-1/3 border-r border-gray-700">
+            <div class="p-2 font-bold text-sm">CSS</div>
+            <textarea id="css-editor">
+/* Quantum CSS Enhancements */
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(0, 240, 255, 0.1),
+        rgba(125, 0, 255, 0.1),
+        rgba(255, 0, 214, 0.1)
+    );
+    transform: rotate(30deg);
+    animation: hologram 8s infinite linear;
+    z-index: -1;
+}
+
+@keyframes hologram {
+    0% { transform: rotate(30deg) translateX(-10%); }
+    100% { transform: rotate(30deg) translateX(10%); }
+}
+
+button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+}</textarea
+            >
+          </div>
+          <div class="w-1/3">
+            <div class="p-2 font-bold text-sm">JavaScript</div>
+            <textarea id="js-editor">
+// Quantum JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('button');
+    const card = document.querySelector('.card');
+    
+    button.addEventListener('click', function() {
+        // Create particle effect
+        for (let i = 0; i < 20; i++) {
+            createParticle(button);
+        }
+        
+        // Change card color temporarily
+        card.style.background = 'rgba(40, 40, 80, 0.8)';
+        setTimeout(() => {
+            card.style.background = '';
+        }, 500);
+    });
+    
+    function createParticle(element) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        document.body.appendChild(particle);
+        
+        const rect = element.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 2 + Math.random() * 3;
+        const vx = Math.cos(angle) * velocity;
+        const vy = Math.sin(angle) * velocity;
+        
+        let opacity = 1;
+        const animate = () => {
+            opacity -= 0.02;
+            particle.style.opacity = opacity;
+            particle.style.left = parseFloat(particle.style.left) + vx + 'px';
+            particle.style.top = parseFloat(particle.style.top) + vy + 'px';
+            
+            if (opacity > 0) {
+                requestAnimationFrame(animate);
+            } else {
+                particle.remove();
+            }
+        };
+        
+        animate();
+    }
+});</textarea
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview Window -->
+      <div class="quantum-window preview-window" id="preview-window">
+        <div class="window-header">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-eye text-green-400"></i>
+            <span>Live Preview</span>
+          </div>
+          <div class="window-controls">
+            <div class="control-btn minimize"></div>
+            <div class="control-btn maximize"></div>
+            <div class="control-btn close"></div>
+          </div>
+        </div>
+        <div class="p-2 h-full">
+          <iframe
+            id="preview-frame"
+            class="w-full h-full bg-white rounded"
+            sandbox="allow-scripts"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Console Window -->
+      <div class="quantum-window console-window" id="console-window">
+        <div class="window-header">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-terminal text-yellow-400"></i>
+            <span>Quantum Console</span>
+          </div>
+          <div class="window-controls">
+            <div class="control-btn minimize"></div>
+            <div class="control-btn maximize"></div>
+            <div class="control-btn close"></div>
+          </div>
+        </div>
+        <div class="p-2 h-full overflow-y-auto font-mono text-sm">
+          <div class="text-green-400">> System initialized successfully</div>
+          <div class="text-blue-400">> Quantum Nexus v1.0 running</div>
+          <div class="text-purple-400">> AI Assistant activated</div>
+          <div class="text-yellow-400">> Ready for quantum development</div>
+          <div class="mt-2 text-gray-400">
+            > <span id="console-cursor">_</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Window -->
+      <div class="quantum-window dashboard-window" id="dashboard-window">
+        <div class="window-header">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-chart-line text-red-400"></i>
+            <span>Analytics Dashboard</span>
+          </div>
+          <div class="window-controls">
+            <div class="control-btn minimize"></div>
+            <div class="control-btn maximize"></div>
+            <div class="control-btn close"></div>
+          </div>
+        </div>
+        <div class="p-2 h-full grid grid-cols-3 gap-4">
+          <div class="quantum-window hologram-effect p-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-blue-400" id="fps-counter">
+                60
+              </div>
+              <div class="text-sm">FPS</div>
+            </div>
+            <canvas id="fps-chart" class="mt-2"></canvas>
+          </div>
+          <div class="quantum-window hologram-effect p-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-green-400" id="memory-usage">
+                42%
+              </div>
+              <div class="text-sm">Memory</div>
+            </div>
+            <canvas id="memory-chart" class="mt-2"></canvas>
+          </div>
+          <div class="quantum-window hologram-effect p-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-purple-400" id="cpu-usage">
+                18%
+              </div>
+              <div class="text-sm">CPU</div>
+            </div>
+            <canvas id="cpu-chart" class="mt-2"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Menu Bar -->
+    <div
+      class="absolute top-0 left-0 right-0 bg-black bg-opacity-50 backdrop-blur-md p-2 flex justify-between items-center z-50"
+    >
+      <div class="flex space-x-4">
+        <button class="quantum-button text-sm">File</button>
+        <button class="quantum-button text-sm">Edit</button>
+        <button class="quantum-button text-sm">View</button>
+        <button class="quantum-button text-sm" id="theme-toggle">Themes</button>
+        <button class="quantum-button text-sm" id="export-btn">Export</button>
+      </div>
+      <div
+        class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"
+      >
+        Quantum Nexus
+      </div>
+    </div>
+
+    <!-- AI Message -->
+    <div class="ai-message hidden" id="ai-message">
+      <div class="flex items-center mb-2">
+        <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+        <span class="font-bold">NEXUS AI</span>
+      </div>
+      <p id="ai-text">
+        Hello! I'm your quantum development assistant. How can I help you today?
+      </p>
+      <div class="flex justify-end mt-2">
+        <button class="text-xs quantum-button py-1 px-2" id="ai-close">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
